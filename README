@@ -1,0 +1,7 @@
+CtrlZ jQuery plugin
+With this plugins, you can use ctrl+z and ctrl+y on your textareas, even when 
+they are modified by external plugins or javascript routines.
+
+It works with jQuery 1.8.x and upper.
+
+Author : Gilles FRANCOIS / gilles@sofoot.com
