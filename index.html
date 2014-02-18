@@ -5,14 +5,14 @@
 	<title>ctrlZ</title>
 	<script src="js/jquery.min.js" language="javascript"></script>
 	<script src="js/jquery.ctrlZ.js" language="javascript"></script>
-	<link rel='stylesheet' href='css/styles.css' type='text/css'/>
-
+<!-- 	<link rel='stylesheet' href='css/styles.css' type='text/css'/>
+	 -->
 </head>
 <body>
  <h1>CtrlZ jQuery plugin</h1>
- <p>With this plugins, you can use ctrl+z and ctrly on your textareas, even when they are modified by external plugins or javascript routines</p>
+ <p>With this plugins, you can use ctrl+z and ctrl+y on your textareas, even when they are modified by external plugins or javascript routines</p>
 
-<textarea cols="30" rows="10"></textarea>
+<textarea cols="30" rows="10" id="target"></textarea>
 <br>
 <input type="button" value="Click here to add some text to the textarea" onclick="$('#target').val($('#target').val()+' '+prompt('Type some texte here','Some text'))">
 <p>And you can cancel it by pressing ctrl+z when the textarea is in focus. Yey !</p>
@@ -23,6 +23,15 @@ jQuery(document).ready(function () {
 
 	$("textarea").ctrlZ();
 
+	setTimeout(function(){
+		$('#target').val('coucou');
+	},500);
+	setTimeout(function(){
+		$('#target').val('coucou les');
+	},1000);
+	setTimeout(function(){
+		$('#target').val('coucou les copains');
+	},1500);
 
 });
 </script>

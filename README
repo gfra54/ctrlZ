@@ -1,7 +1,33 @@
-CtrlZ jQuery plugin
-With this plugins, you can use ctrl+z and ctrl+y on your textareas, even when 
-they are modified by external plugins or javascript routines.
+<h1>CtrlZ jQuery plugin</h1>
+<p>With this plugins, you can use ctrl+z and ctrl+y on your textareas, even when 
+they are modified by external plugins or javascript routines.</p>
 
-It works with jQuery 1.8.x and upper.
+<p>It works with jQuery 1.8.x and upper.</p>
+
+<p>
+File jquery.ctrlZ.debug.js is used to debug the undo buffer navigation.
+You don't need it !
+</p>
+
+<h2>How to install ?</h2>
+<p>Upload jquery.crtlZ.js to your server, in any directory. Let's choose /js/, because we are being so silly.</p>
+<p>Of course, you need jQuery 1.8 or up for this to work. Because, you know, it is jQuery plugin.</p>
+<p>Then, simply link to the js file in your HTML and the activate crtlZ by calling the ctrlZ method :</p>
+
+```
+<script src="js/jquery.min.js" language="javascript"></script>
+<script src="js/jquery.ctrlZ.js" language="javascript"></script>
+
+<script type="text/javascript">
+jQuery(document).ready(function () {
+
+	$("textarea").ctrlZ();
+});
+</script>
+
+```
+
 
 Author : Gilles FRANCOIS / gilles@sofoot.com
+http://betterinternets.com
+

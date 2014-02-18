@@ -6,11 +6,13 @@
 
             undo: true,
             redo: true,
-			interval:0.2, // seconds
+			interval:0.1, // seconds
 
         }
 	
         var plugin = this;
+		
+		var _debug = false; /* todo */
 		
 		plugin.qty = 0;
 		plugin.undo_buffer = {};
@@ -70,7 +72,7 @@
 				/** We pressed ctrl+z to undo **/
 				if(_key == 90 && plugin.infos[_id].ctrl){
 					e.preventDefault();
-					if(plugin.infos[_id].rang>1) {
+					if(plugin.infos[_id].rang>0) {
 						try {
 							plugin.infos[_id].scan=false;
 							plugin.infos[_id].rang--;
@@ -102,16 +104,40 @@
 						}
 					 } else {
 						if(plugin.infos[_tmp_id].prec_val!=_val) {
-							plugin.undo_buffer[_tmp_id].splice(plugin.infos[_tmp_id].rang+1,plugin.undo_buffer[_tmp_id].length-plugin.infos[_tmp_id].rang+1);
 							plugin.infos[_tmp_id].scan=true;
 						}
 					 }
 				  }
 				}
+				debug();
 			},plugin.settings.interval*1000);
 
         }
 
+		var debug = function(){
+			if(!_debug) {
+				$('<pre id="debug" style="padding:10px;color:white;position:fixed;top:0;right:0;background:black;"></pre>').appendTo('body');
+				_debug = $('#debug');
+			}
+			setInterval(function(){
+
+				_debug.text(function(){
+					var _out = '';
+					for (var _tmp_id in plugin.undo_buffer) {
+					  if (plugin.undo_buffer.hasOwnProperty(_tmp_id)) {
+						var _elt = plugin.undo_buffer[_tmp_id]
+						for (var _v in _elt) {
+						  if (_elt.hasOwnProperty(_v)) {
+								_out+="\n- - - - - - - - - - - - \n"+_v+(plugin.infos[_tmp_id].rang == _v ? '*' : ' ')+': '+(_elt[_v] ? _elt[_v] : 'vide');
+						  }
+						}
+					  }
+					}
+					return plugin.infos[_tmp_id].rang+''+_out+'';
+				});
+			},100);
+			
+		}
         plugin.init();
 
     }
