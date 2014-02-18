@@ -1,5 +1,6 @@
 # CtrlZ jQuery plugin
 ## Presentation
+
 With this plugins, you can use ctrl+z and ctrl+y on your textareas, even when 
 they are modified by external plugins or javascript routines.
 
@@ -11,6 +12,7 @@ You don't need it !
 
 
 ## How to install ?
+
 Upload jquery.crtlZ.js to your server, in any directory. Let's choose /js/, because we are being so silly.
 Of course, you need jQuery 1.8 or up for this to work. Because, you know, it is jQuery plugin.
 
@@ -30,7 +32,12 @@ jQuery(document).ready(function () {
 
 ```
 
+## Bugs and errors
+
+This is still a bit early so feel free to contact me if you detect something wrong.
+
 
 Author : Gilles FRANCOIS / gilles@sofoot.com
+
 http://betterinternets.com
 
